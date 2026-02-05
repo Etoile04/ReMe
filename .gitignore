@@ -37,5 +37,15 @@ local_vector_store/*
 chroma_vector_store/*
 bench_results/*
 meta_memory/*
+
+# Database files
 *.sqlite3
+
+# Test data
 **/data/*.json
+
+# Test and debug scripts with sensitive data
+test_mlx_setup.py
+test_config_fix.py
+start_services.py
+debug_config.py

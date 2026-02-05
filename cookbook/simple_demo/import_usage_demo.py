@@ -241,8 +241,10 @@ async def load_vector_store(app: ReMeApp):
 async def main():
     """Run all examples"""
     async with ReMeApp(
-        "llm.default.model_name=qwen3-30b-a3b-thinking-2507",
-        "embedding_model.default.model_name=text-embedding-v4",
+        "llm.default.backend=openai_compatible",
+        "llm.default.model_name=qwen3-235b-a22b-thinking-2507",
+        "embedding_model.default.backend=openai_compatible",
+        "embedding_model.default.model_name=text-embedding-v3",
         "vector_store.default.backend=memory",
     ) as app:
         print("=" * 60)

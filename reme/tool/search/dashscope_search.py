@@ -91,8 +91,11 @@ class DashscopeSearch(BaseTool):
             if response.output.search_info:
                 search_results = response.output.search_info.get("search_results", [])
 
+            # Try OpenAI-style format first, then Dashscope text format
             if response.output.choices and len(response.output.choices) > 0:
                 response_content = response.output.choices[0].message.content
+            elif hasattr(response.output, 'text') and response.output.text:
+                response_content = response.output.text
 
         final_result = {
             "query": query,
